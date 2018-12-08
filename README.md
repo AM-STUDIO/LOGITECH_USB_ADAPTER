@@ -3,7 +3,7 @@
 Credit to Armandoiglesias for Sketch
 Based on Jason Duncan functionreturnfunction Project
 
-View YouTube Video here for tutorial .........soon
+View YouTube AMSTUDIO Video here for tutorial https://www.youtube.com/watch?v=dLpWEu8kCec
 
 Please consider supporting https://www.patreon.com/AMSTUDIO
 
