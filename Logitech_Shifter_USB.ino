@@ -10,12 +10,19 @@
 
 #include <Joystick.h>
 
+// Define the pins connected to your arduino here, 
+// in the example we're using ping A0 and A2 and pin 2.
+// 
+const int yellow1 = A0;
+const int yellow2 = A2;
+const int green1 = 2;
+
 // Create the Joystick
 Joystick_ Joystick;
 
 // H-shifter mode analog axis thresholds
 #define HS_XAXIS_12        400
-#define HS_XAXIS_56        500
+#define HS_XAXIS_56        600
 #define HS_YAXIS_135       800
 #define HS_YAXIS_246       300
 
@@ -68,15 +75,12 @@ int b[16];
 
 int gear=0;                          // Default value is neutral
 
-// Constant that maps the phyical pin to the joystick button.
-//const int pinToButtonMap = 9;
-
 void setup() {
    // G29 shifter analog inputs configuration 
-  pinMode(A0, INPUT_PULLUP);   // X axis
-  pinMode(A2, INPUT_PULLUP);   // Y axis
+  pinMode(yellow1, INPUT_PULLUP);   // X axis
+  pinMode(yellow2, INPUT_PULLUP);   // Y axis
 
-  pinMode(2, INPUT); 
+  pinMode(green1, INPUT); 
 
 
   for(int i=0; i<16; i++) b[i] = 0;
@@ -91,10 +95,10 @@ int lastButtonState = 0;
 
 void loop() {
 
-  int x=analogRead(0);                 // X axis
-  int y=analogRead(2);                 // Y axis
+  int x=analogRead(yellow1);                 // X axis
+  int y=analogRead(yellow2);                 // Y axis
 
-  int _isreverse = digitalRead(2);
+  int _isreverse = digitalRead(green1);
   int _gear_ = 0;
 
 if( _isreverse == 1 ){
